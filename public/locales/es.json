@@ -1,14 +1,14 @@
 {
     "pages": {
         "login": {
-            "title": "Sign in to your account",
-            "signin": "Sign in",
-            "signup": "Sign up",
+            "title": "Ingresa a tu cuenta",
+            "signin": "Inicia Session",
+            "signup": "Registrate",
             "divider": "or",
             "fields": {
-                "email": "Email",
-                "username": "Username",
-                "password": "Password"
+                "email": "Correo",
+                "username": "Usuario",
+                "password": "Contraseña"
             },
             "errors": {
                 "validEmail": "Invalid email address"
@@ -177,25 +177,25 @@
     "dashboard": {
         "title": "Dashboard",
         "deliveryMap": {
-            "title": "Delivery Map"
+            "title": "Mapa de Entregas"
         },
         "orders": {
-            "title": "Orders"
+            "title": "Ordenes"
         },
         "totalSales": {
-            "title": "Total Sales"
+            "title": "Total Ventas"
         },
         "dailyRevenue": {
-            "title": "Daily Revenue"
+            "title": "Ganacias Diarias"
         },
         "dailyOrders": {
-            "title": "Daily Orders"
+            "title": "Ordenes Diarias"
         },
         "newCustomers": {
-            "title": "New Customers"
+            "title": "Nuevos Clientes"
         },
         "timeline": {
-            "title": "Timeline",
+            "title": "Linea de Tiempo",
             "orderStatuses": {
                 "pending": "Preparing order",
                 "ready": "Order is ready",
@@ -205,10 +205,10 @@
             }
         },
         "recentOrders": {
-            "title": "Recent Orders"
+            "title": "Ordenes Recientes"
         },
         "trendingMenus": {
-            "title": "Daily Trending Menus"
+            "title": "Tendencias Diarias"
         }
     },
     "enum": {
@@ -221,10 +221,10 @@
         }
     },
     "orders": {
-        "orders": "Orders",
+        "orders": "Ordenes",
         "titles": {
-            "list": "Orders",
-            "show": "Show Order"
+            "list": "Ordenes",
+            "show": "Mostrar Ordenes"
         },
         "fields": {
             "orderNumber": "Order Number",
@@ -276,8 +276,8 @@
         }
     },
     "products": {
-        "products": "Products",
-        "noProducts": "No Products",
+        "products": "Productos",
+        "noProducts": "Número de Productos",
         "titles": {
             "list": "Products",
             "create": "Create Product",
@@ -311,7 +311,7 @@
         }
     },
     "stores": {
-        "stores": "Stores",
+        "stores": "Tiendas",
         "titles": {
             "create": "Create Store",
             "edit": "Edit Store",

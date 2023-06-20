@@ -9,7 +9,7 @@ import {
 import GlobalStyles from "@mui/material/GlobalStyles";
 import CssBaseline from "@mui/material/CssBaseline";
 import dataProvider from "@refinedev/simple-rest";
-import routerProvider, {
+import routerBindings, {
     CatchAllNavigate,
     NavigateToResource,
     UnsavedChangesNotifier,
@@ -44,7 +44,7 @@ import { ColorModeContextProvider } from "contexts";
 import { Header, Title, OffLayoutArea } from "components";
 import { BikeWhiteIcon } from "components/icons/bike-white";
 
-const API_URL = "https://api.finefoods.refine.dev";
+const API_URL = "http://localhost:4000";
 
 const App: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -65,7 +65,7 @@ const App: React.FC = () => {
                     />
                     <RefineSnackbarProvider>
                         <Refine
-                            routerProvider={routerProvider}
+                            routerProvider={routerBindings}
                             dataProvider={dataProvider(API_URL)}
                             authProvider={authProvider}
                             i18nProvider={i18nProvider}
@@ -238,8 +238,9 @@ const App: React.FC = () => {
                                                 type="login"
                                                 formProps={{
                                                     defaultValues: {
-                                                        email: "demo@refine.dev",
-                                                        password: "demodemo",
+                                                        email: "juanma.prada+mani@helixgenetics.org",
+                                                        username: "mani_perron",
+                                                        password: "PAssword@1234",
                                                     },
                                                 }}
                                             />

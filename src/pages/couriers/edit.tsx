@@ -269,7 +269,7 @@ export const CourierEdit: React.FC<IResourceComponentsProps> = () => {
                                                                 value,
                                                             ) => {
                                                                 field.onChange(
-                                                                    value,
+                                                                    value || '',
                                                                 );
                                                             }}
                                                             options={[
@@ -464,7 +464,7 @@ export const CourierEdit: React.FC<IResourceComponentsProps> = () => {
                                                     {...autocompleteProps}
                                                     {...field}
                                                     onChange={(_, value) => {
-                                                        field.onChange(value);
+                                                        // field.onChange(value);
                                                     }}
                                                     getOptionLabel={(item) => {
                                                         return item.title

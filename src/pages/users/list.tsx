@@ -166,6 +166,7 @@ export const UserList: React.FC<IResourceComponentsProps> = () => {
         },
     });
 
+    // @ts-ignore
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} lg={3}>
@@ -204,6 +205,7 @@ export const UserList: React.FC<IResourceComponentsProps> = () => {
                                         <InputLabel id="gender-select">
                                             {t("users.filter.gender.label")}
                                         </InputLabel>
+                                        {/*@ts-ignore */}
                                         <Select
                                             {...field}
                                             labelId="gender-select"
@@ -234,6 +236,7 @@ export const UserList: React.FC<IResourceComponentsProps> = () => {
                                         <InputLabel id="isActive-select">
                                             {t("users.filter.isActive.label")}
                                         </InputLabel>
+                                        {/*@ts-ignore */}
                                         <Select
                                             {...field}
                                             labelId="isActive-select"

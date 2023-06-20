@@ -3,8 +3,8 @@ import { AuthBindings } from "@refinedev/core";
 export const TOKEN_KEY = "refine-auth";
 
 export const authProvider: AuthBindings = {
-    login: async ({ email, password }) => {
-        localStorage.setItem(TOKEN_KEY, `${email}-${password}`);
+    login: async ({ email,username, password }) => {
+        localStorage.setItem(TOKEN_KEY, `${email}-${username}-${password}`);
         return {
             success: true,
             redirectTo: "/",

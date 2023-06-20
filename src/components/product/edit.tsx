@@ -289,7 +289,7 @@ export const EditProduct: React.FC<
                                                 {...autocompleteProps}
                                                 {...field}
                                                 onChange={(_, value) => {
-                                                    field.onChange(value);
+                                                    // field.onChange(value);
                                                 }}
                                                 getOptionLabel={(item) => {
                                                     return item.title

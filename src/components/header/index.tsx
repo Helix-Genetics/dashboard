@@ -129,6 +129,17 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = () => {
         refetchStores();
     }, [value]);
 
+    const getLocal = (lang: string): string => {
+        switch (lang) {
+            case "en":
+                return "English"
+            case "es":
+                return "Español"
+            default:
+                return "German"
+        }
+    }
+
     return (
         <AppBar color="default" position="sticky" elevation={1}>
             <Toolbar
@@ -287,9 +298,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = () => {
                                                     }}
                                                     src={`/images/flags/${lang}.svg`}
                                                 />
-                                                {lang === "en"
-                                                    ? "English"
-                                                    : "German"}
+                                                {getLocal(lang)}
                                             </Stack>
                                         </MenuItem>
                                     ))}

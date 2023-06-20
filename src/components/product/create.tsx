@@ -286,7 +286,7 @@ export const CreateProduct: React.FC<
                                                 {...autocompleteProps}
                                                 {...field}
                                                 onChange={(_, value) => {
-                                                    field.onChange(value);
+                                                    //.onChange(value);
                                                 }}
                                                 getOptionLabel={(item) => {
                                                     return item.title
