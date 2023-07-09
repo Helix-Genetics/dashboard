@@ -73,62 +73,48 @@ export const UserList: React.FC<IResourceComponentsProps> = () => {
     const columns = React.useMemo<GridColDef<IUser>[]>(
         () => [
             {
-                field: "gsm",
-                headerName: t("users.fields.gsm"),
+                field: "phone_number",
+                headerName: t("users.fields.phone_number"),
                 minWidth: 150,
                 flex: 1,
+                renderCell: function render({ row }) {
+                    return <TextField value={row.phone_number}/>;
+                },
             },
+
             {
                 field: "avatar",
                 headerName: t("users.fields.avatar.label"),
                 renderCell: function render({ row }) {
-                    return <Avatar src={row.avatar[0].url} />;
+                    return <Avatar src={row.avatar} />;
                 },
                 minWidth: 100,
                 flex: 1,
-                sortable: false,
             },
+
             {
-                field: "firstName",
-                headerName: t("users.fields.firstName"),
+                field: "first_name",
+                headerName: t("users.fields.first_name"),
                 minWidth: 150,
                 flex: 1,
             },
             {
-                field: "lastName",
-                headerName: t("users.fields.lastName"),
+                field: "last_names",
+                headerName: t("users.fields.last_name"),
                 minWidth: 150,
                 flex: 1,
             },
             {
-                field: "gender",
-                headerName: t("users.fields.gender.label"),
-                valueGetter: ({ row }) =>
-                    t(`users.fields.gender.${row.gender}`),
+                field: "username",
+                headerName: t("users.fields.username"),
+                minWidth: 150,
+                flex: 1,
             },
             {
-                field: "isActive",
-                headerName: t("users.fields.isActive.label"),
-                align: "center",
-                headerAlign: "center",
+                field: "created_at",
+                headerName: t("users.fields.created_at"),
                 renderCell: function render({ row }) {
-                    return (
-                        <BooleanField
-                            svgIconProps={{
-                                sx: { width: "16px", height: "16px" },
-                            }}
-                            value={row.isActive}
-                        />
-                    );
-                },
-                minWidth: 80,
-                flex: 0.5,
-            },
-            {
-                field: "createdAt",
-                headerName: t("users.fields.createdAt"),
-                renderCell: function render({ row }) {
-                    return <DateField value={row.createdAt} format="LLL" />;
+                    return <DateField value={row.created_at} format="LLL" />;
                 },
                 minWidth: 200,
                 flex: 1,

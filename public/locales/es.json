@@ -21,7 +21,7 @@
             }
         },
         "forgotPassword": {
-            "title": "Forgot your password?",
+            "title": "Olvidaste tu contraseña?",
             "fields": {
                 "email": "Email"
             },
@@ -57,6 +57,18 @@
             },
             "buttons": {
                 "submit": "Update"
+            }
+        },
+        "verify": {
+            "title": "Verify Otp",
+            "fields": {
+                "code": "Otp Code"
+            },
+            "errors": {
+                "validOtp": "Invalid Otp"
+            },
+            "buttons": {
+                "submit": "Verify Otp Code"
             }
         },
         "error": {
@@ -220,84 +232,6 @@
             "Cancelled": "Cancelled"
         }
     },
-    "orders": {
-        "orders": "Ordenes",
-        "titles": {
-            "list": "Ordenes",
-            "show": "Mostrar Ordenes"
-        },
-        "fields": {
-            "orderNumber": "Order Number",
-            "orderID": "Order ID",
-            "status": "Status",
-            "store": "Store",
-            "user": "User",
-            "products": "Products",
-            "createdAt": "CreatedAt",
-            "amount": "Amount",
-            "itemsAmount": "{{amount}} items"
-        },
-        "filter": {
-            "title": "Filters",
-            "search": {
-                "label": "Search",
-                "placeholder": "Order Number, User, etc."
-            },
-            "status": {
-                "label": "Status",
-                "placeholder": "Order Status"
-            },
-            "store": {
-                "label": "Store",
-                "placeholder": "Search Stores"
-            },
-            "user": {
-                "label": "User",
-                "placeholder": "Search Users"
-            },
-            "createdAt": {
-                "label": "Created At"
-            },
-            "submit": "Filter"
-        },
-        "courier": {
-            "deliveryTime": "Delivery Time",
-            "phone": "Phone"
-        },
-        "deliverables": {
-            "deliverables": "Deliverables",
-            "fields": {
-                "items": "Items",
-                "quantity": "Quantity",
-                "price": "Price",
-                "total": "Total"
-            },
-            "mainTotal": "MAIN TOTAL"
-        }
-    },
-    "products": {
-        "products": "Productos",
-        "noProducts": "Número de Productos",
-        "titles": {
-            "list": "Products",
-            "create": "Create Product",
-            "edit": "Edit Product"
-        },
-        "fields": {
-            "id": "ID",
-            "name": "Name",
-            "description": "Description",
-            "isActive": "Active",
-            "price": "Price",
-            "category": "Category",
-            "images": {
-                "label": "Images",
-                "description": "Add product picture",
-                "validation": "must be 1080x1080 px"
-            },
-            "createdAt": "CreatedAt"
-        }
-    },
     "reviews": {
         "reviews": "Reviews",
         "titles": {
@@ -307,44 +241,16 @@
             "user": "User",
             "orderId": "Order ID",
             "review": "Review",
-            "rating": "Rating"
+            "rating": "Rating",
+            "status": "estado"
         }
     },
-    "stores": {
-        "stores": "Tiendas",
-        "titles": {
-            "create": "Create Store",
-            "edit": "Edit Store",
-            "list": "Stores",
-            "show": "Show Store"
-        },
-        "fields": {
-            "id": "Store ID",
-            "title": "Title",
-            "isActive": "Active",
-            "createdAt": "CreatedAt",
-            "address": "Address",
-            "email": "Email",
-            "gsm": "Phone"
-        },
-        "buttons": {
-            "editProducts": "Edit Products",
-            "addProduct": "Add Product",
-            "outOfStock": "Out Of Stock",
-            "edit": "Edit Product"
-        },
-        "selectLocation": "Choose store location on the map",
-        "storeProducts": "Store Products",
-        "tagFilterDescription": "Use tags to filter your search",
-        "all": "All",
-        "productSearch": "Product Search"
-    },
     "users": {
-        "users": "Users",
+        "users": "Usuarios",
         "titles": {
-            "edit": "Edit User",
-            "list": "Users",
-            "show": "User Detail"
+            "edit": "Editar Usuario",
+            "list": "Usuarios",
+            "show": "Detalles de usuario"
         },
         "fields": {
             "id": "ID",

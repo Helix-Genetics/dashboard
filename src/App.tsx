@@ -25,26 +25,24 @@ import LocalPizzaOutlined from "@mui/icons-material/LocalPizzaOutlined";
 import PeopleOutlineOutlined from "@mui/icons-material/PeopleOutlineOutlined";
 import Dashboard from "@mui/icons-material/Dashboard";
 
-import { authProvider } from "authProvider";
+import {authProvider, TOKEN_KEY} from "authProvider";
 import { DashboardPage } from "pages/dashboard";
-import { OrderList, OrderShow } from "pages/orders";
 import { UserList, UserShow } from "pages/users";
 import { ReviewsList } from "pages/reviews";
-import {
-    CourierList,
-    CourierShow,
-    CourierCreate,
-    CourierEdit,
-} from "pages/couriers";
+
 import { AuthPage } from "pages/auth";
-import { StoreList, StoreEdit, StoreCreate } from "pages/stores";
-import { ProductList } from "pages/products";
-import { CategoryList } from "pages/categories";
 import { ColorModeContextProvider } from "contexts";
 import { Header, Title, OffLayoutArea } from "components";
 import { BikeWhiteIcon } from "components/icons/bike-white";
-
+import React from "react";
+import { ConfirmationPage } from "./components/auth/confirmation";
+import axios from 'axios'
+const axiosInstance = axios.create()
 const API_URL = "http://localhost:4000";
+const token = localStorage.getItem(TOKEN_KEY)
+axiosInstance.defaults.headers.common = {
+    Authorization: `Bearer ${token}`,
+}
 
 const App: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -66,7 +64,7 @@ const App: React.FC = () => {
                     <RefineSnackbarProvider>
                         <Refine
                             routerProvider={routerBindings}
-                            dataProvider={dataProvider(API_URL)}
+                            dataProvider={dataProvider(API_URL, axiosInstance)}
                             authProvider={authProvider}
                             i18nProvider={i18nProvider}
                             options={{
@@ -83,53 +81,13 @@ const App: React.FC = () => {
                                         icon: <Dashboard />,
                                     },
                                 },
-                                {
-                                    name: "orders",
-                                    list: "/orders",
-                                    show: "/orders/show/:id",
-                                    meta: {
-                                        icon: <AddShoppingCartOutlined />,
-                                    },
-                                },
+
                                 {
                                     name: "users",
                                     list: "/users",
                                     show: "/users/show/:id",
                                     meta: {
                                         icon: <PeopleOutlineOutlined />,
-                                    },
-                                },
-                                {
-                                    name: "products",
-                                    list: "/products",
-                                    meta: {
-                                        icon: <LocalPizzaOutlined />,
-                                    },
-                                },
-                                {
-                                    name: "stores",
-                                    list: "/stores",
-                                    create: "/stores/create",
-                                    edit: "/stores/edit/:id",
-                                    meta: {
-                                        icon: <StoreOutlined />,
-                                    },
-                                },
-                                {
-                                    name: "categories",
-                                    list: "/categories",
-                                    meta: {
-                                        icon: <CategoryOutlined />,
-                                    },
-                                },
-                                {
-                                    name: "couriers",
-                                    list: "/couriers",
-                                    create: "/couriers/create",
-                                    edit: "/couriers/edit/:id",
-                                    show: "/couriers/show/:id",
-                                    meta: {
-                                        icon: <BikeWhiteIcon />,
                                     },
                                 },
                                 {
@@ -161,60 +119,13 @@ const App: React.FC = () => {
                                 >
                                     <Route index element={<DashboardPage />} />
 
-                                    <Route path="/orders">
-                                        <Route index element={<OrderList />} />
-                                        <Route
-                                            path="show/:id"
-                                            element={<OrderShow />}
-                                        />
-                                    </Route>
+
 
                                     <Route path="/users">
                                         <Route index element={<UserList />} />
                                         <Route
                                             path="show/:id"
                                             element={<UserShow />}
-                                        />
-                                    </Route>
-
-                                    <Route
-                                        path="/products"
-                                        element={<ProductList />}
-                                    />
-
-                                    <Route path="/stores">
-                                        <Route index element={<StoreList />} />
-                                        <Route
-                                            path="create"
-                                            element={<StoreCreate />}
-                                        />
-                                        <Route
-                                            path="edit/:id"
-                                            element={<StoreEdit />}
-                                        />
-                                    </Route>
-
-                                    <Route
-                                        path="/categories"
-                                        element={<CategoryList />}
-                                    />
-
-                                    <Route path="/couriers">
-                                        <Route
-                                            index
-                                            element={<CourierList />}
-                                        />
-                                        <Route
-                                            path="create"
-                                            element={<CourierCreate />}
-                                        />
-                                        <Route
-                                            path="edit/:id"
-                                            element={<CourierEdit />}
-                                        />
-                                        <Route
-                                            path="show/:id"
-                                            element={<CourierShow />}
                                         />
                                     </Route>
 
@@ -243,6 +154,7 @@ const App: React.FC = () => {
                                                         password: "PAssword@1234",
                                                     },
                                                 }}
+
                                             />
                                         }
                                     />
@@ -255,10 +167,17 @@ const App: React.FC = () => {
                                                     defaultValues: {
                                                         email: "demo@refine.dev",
                                                         password: "demodemo",
+                                                        username: ""
                                                     },
                                                 }}
                                             />
                                         }
+                                    />
+                                    <Route
+                                      path="/verify"
+                                      element={
+                                          <ConfirmationPage />
+                                      }
                                     />
                                     <Route
                                         path="/forgot-password"

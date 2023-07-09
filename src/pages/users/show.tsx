@@ -60,7 +60,7 @@ export const UserShow: React.FC<IResourceComponentsProps> = () => {
         resource: "orders",
         initialSorter: [
             {
-                field: "createdAt",
+                field: "created_at",
                 order: "desc",
             },
         ],
@@ -122,7 +122,7 @@ export const UserShow: React.FC<IResourceComponentsProps> = () => {
             {
                 field: "user",
                 headerName: t("orders.fields.user"),
-                valueGetter: ({ row }) => row.user.fullName,
+                valueGetter: ({ row }) => row.user.first_name,
                 sortable: false,
             },
             {
@@ -155,7 +155,7 @@ export const UserShow: React.FC<IResourceComponentsProps> = () => {
                 },
             },
             {
-                field: "createdAt",
+                field: "created_at",
                 headerName: t("orders.fields.createdAt"),
                 flex: 1,
                 renderCell: function render({ row }) {
@@ -178,35 +178,29 @@ export const UserShow: React.FC<IResourceComponentsProps> = () => {
                 <Paper sx={{ p: 2, paddingX: { xs: 4, md: 2 } }}>
                     <Stack alignItems="center" spacing={1}>
                         <Avatar
-                            src={user?.avatar?.[0].url}
+                            src={user?.avatar}
                             sx={{ width: 120, height: 120 }}
                         />
                         <Typography variant="h6">
-                            {user?.firstName} {user?.lastName}
+                            {user?.first_name} {user?.last_names}
                         </Typography>
                     </Stack>
                     <br />
                     <Stack spacing={1}>
                         <UserInfoText>
-                            <PersonOutlineOutlinedIcon />
-                            <Typography variant="body1">
-                                {t(`users.fields.gender.${user?.gender}`)}
-                            </Typography>
-                        </UserInfoText>
-                        <UserInfoText>
                             <LocalPhoneOutlinedIcon />
-                            <Typography variant="body1">{user?.gsm}</Typography>
+                            <Typography variant="body1">{user?.phone_number}</Typography>
                         </UserInfoText>
                         <UserInfoText>
                             <DateRangeOutlinedIcon />
                             <Typography variant="body1">
-                                {user?.createdAt}
+                                {user?.last_names}
                             </Typography>
                         </UserInfoText>
                         <UserInfoText>
                             <CheckOutlinedIcon />
                             <Typography variant="body1">
-                                {user?.isActive
+                                {user?.id
                                     ? t("users.fields.isActive.true")
                                     : t("users.fields.isActive.false")}
                             </Typography>
@@ -237,11 +231,11 @@ export const UserShow: React.FC<IResourceComponentsProps> = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {user?.addresses.map((row) => (
+                                {/**user?.addresses.map((row) => (
                                     <TableRow key={row.text}>
                                         <TableCell>{row.text}</TableCell>
                                     </TableRow>
-                                ))}
+                                )) **/}
                             </TableBody>
                         </Table>
                     </TableContainer>

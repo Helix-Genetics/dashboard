@@ -25,16 +25,40 @@ export interface IOrderStatus {
 }
 
 export interface IUser {
-    id: number;
-    firstName: string;
-    lastName: string;
-    fullName: string;
-    gender: string;
-    gsm: string;
-    createdAt: string;
-    isActive: boolean;
-    avatar: IFile[];
-    addresses: IAddress[];
+
+
+    id: string
+
+    avatar: string
+    is_active: boolean
+
+
+    first_name: string
+
+
+    middle_name: string
+
+
+    last_names: string
+
+    password: string
+
+
+    username: string
+
+
+    phone_number: string
+
+
+    role_id: string
+
+    email: string
+
+
+    created_at: Date
+
+
+    updated_at: Date
 }
 
 export interface IIdentity {
@@ -147,10 +171,10 @@ export interface ICourier {
 
 export interface IReview {
     id: number;
-    order: IOrder;
-    user: IUser;
-    star: number;
-    createDate: string;
+    owner_id: string;
+    rating: number;
+    created_at: string;
+    updated_at: string
     status: "pending" | "approved" | "rejected";
     comment: string[];
 }
