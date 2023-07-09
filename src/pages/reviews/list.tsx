@@ -9,7 +9,6 @@ import React from "react";
 
 import Check from "@mui/icons-material/Check";
 import Clear from "@mui/icons-material/Clear";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -72,45 +71,19 @@ export const ReviewsList: React.FC<IResourceComponentsProps> = () => {
     const columns = React.useMemo<GridColDef<IReview>[]>(
         () => [
             {
-                field: "avatar",
-                headerName: "Avatar",
-                renderCell: function render({ row }) {
-                    return <Avatar src={row.user.avatar[0].url} />;
-                },
-                sortable: false,
-            },
-            {
                 field: "user",
                 headerName: t("reviews.fields.user"),
-                valueGetter: ({ row }) => row.user.fullName,
+                valueGetter: ({ row }) => row.owner_id,
                 minWidth: 200,
                 flex: 1,
                 sortable: false,
-            },
-            {
-                field: "order.id",
-                headerName: t("reviews.fields.orderId"),
-                renderCell: function render({ row }) {
-                    return (
-                        <Button
-                            onClick={() => {
-                                show("orders", row.order.id);
-                            }}
-                            variant="text"
-                        >
-                            #{row.order.id}
-                        </Button>
-                    );
-                },
-                minWidth: 100,
-                flex: 0.5,
             },
             {
                 field: "comment",
                 headerName: t("reviews.fields.review"),
                 renderCell: function render({ row }) {
                     return (
-                        <Tooltip title={row.comment[0]}>
+                        <Tooltip title={row.id}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -118,7 +91,7 @@ export const ReviewsList: React.FC<IResourceComponentsProps> = () => {
                                     overflow: "hidden",
                                 }}
                             >
-                                {row.comment[0]}
+                                {row.comment}
                             </Typography>
                         </Tooltip>
                     );
@@ -126,6 +99,7 @@ export const ReviewsList: React.FC<IResourceComponentsProps> = () => {
                 minWidth: 200,
                 flex: 1,
             },
+
             {
                 field: "star",
                 headerName: t("reviews.fields.rating"),
@@ -139,16 +113,39 @@ export const ReviewsList: React.FC<IResourceComponentsProps> = () => {
                             alignItems="center"
                             sx={{ whiteSpace: "break-spaces" }}
                         >
-                            <Typography variant="h5">{row.star}</Typography>
+                            <Typography variant="h5">{row.rating}</Typography>
                             <Rating
                                 name="rating"
-                                defaultValue={row.star}
+                                defaultValue={row.rating}
                                 readOnly
                             />
                         </Stack>
                     );
                 },
             },
+          {
+            field: "status",
+            headerName: t("reviews.fields.status"),
+            headerAlign: "center",
+            flex: 1,
+            minWidth: 20,
+            align: "center",
+            renderCell: function render({ row }) {
+              return (
+                <Tooltip title={row.id}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      textOverflow: "ellipsis",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {row.status}
+                  </Typography>
+                </Tooltip>
+              );
+            },
+          },
             {
                 field: "actions",
                 headerName: t("table.actions"),
