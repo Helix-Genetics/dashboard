@@ -23,6 +23,7 @@ import CategoryOutlined from "@mui/icons-material/CategoryOutlined";
 import StoreOutlined from "@mui/icons-material/StoreOutlined";
 import LocalPizzaOutlined from "@mui/icons-material/LocalPizzaOutlined";
 import PeopleOutlineOutlined from "@mui/icons-material/PeopleOutlineOutlined";
+import CarRental from "@mui/icons-material/CarRental"
 import Dashboard from "@mui/icons-material/Dashboard";
 
 import {authProvider, TOKEN_KEY} from "authProvider";
@@ -37,6 +38,7 @@ import { BikeWhiteIcon } from "components/icons/bike-white";
 import React from "react";
 import { ConfirmationPage } from "./components/auth/confirmation";
 import axios from 'axios'
+import {CarsCreate, CarsEdit, CarsList, CarsShow} from "./pages/cars";
 const axiosInstance = axios.create()
 const API_URL = "http://localhost:4000";
 const token = localStorage.getItem(TOKEN_KEY)
@@ -72,32 +74,48 @@ const App: React.FC = () => {
                                 warnWhenUnsavedChanges: true,
                             }}
                             notificationProvider={notificationProvider}
-                            resources={[
-                                {
-                                    name: "dashboard",
-                                    list: "/",
-                                    meta: {
-                                        label: "Dashboard",
-                                        icon: <Dashboard />,
-                                    },
+                            resources={[{
+                                name: "dashboard",
+                                list: "/",
+                                meta: {
+                                    label: "Dashboard",
+                                    icon: <Dashboard />,
                                 },
+                            }, {
+                                name: "users",
+                                list: "/users",
+                                show: "/users/show/:id",
+                                meta: {
+                                    icon: <PeopleOutlineOutlined />,
+                                },
+                            }, {
+                                name: "reviews",
+                                list: "/reviews",
+                                meta: {
+                                    icon: <StarBorderOutlined />,
+                                },
+                            }, {
+                                /**
+                                 *
+                                 * Resource is default with default paths, you need to add the components to the paths accordingly.
+                                 * You can also add custom paths to the resource.
+                                 *
+                                 * Use `<CarsList/>` component at `/cars` path.
+                                 * Use `<CarsCreate/>` component at `/cars/create` path.
+                                 * Use `<CarsEdit/>` component at `/cars/edit/:id` path.
+                                 * Use `<CarsShow/>` component at `/cars/show/:id` path.
+                                 *
+                                 **/
+                                name: "cars",
 
-                                {
-                                    name: "users",
-                                    list: "/users",
-                                    show: "/users/show/:id",
-                                    meta: {
-                                        icon: <PeopleOutlineOutlined />,
-                                    },
-                                },
-                                {
-                                    name: "reviews",
-                                    list: "/reviews",
-                                    meta: {
-                                        icon: <StarBorderOutlined />,
-                                    },
-                                },
-                            ]}
+                                list: "/cars",
+                                create: "/cars/create",
+                                edit: "/cars/edit/:id",
+                                show: "/cars/show/:id",
+                                meta: {
+                                    icon: <CarRental />
+                                }
+                            }]}
                         >
                             <Routes>
                                 <Route
@@ -133,6 +151,10 @@ const App: React.FC = () => {
                                         path="/reviews"
                                         element={<ReviewsList />}
                                     />
+                                    <Route path="/cars">
+                                        <Route index element={<CarsList />} />
+                                        <Route path="/cars/show/:id" element={<CarsShow />} />
+                                    </Route>
                                 </Route>
 
                                 <Route
@@ -149,8 +171,8 @@ const App: React.FC = () => {
                                                 type="login"
                                                 formProps={{
                                                     defaultValues: {
-                                                        email: "juanma.prada+mani@helixgenetics.org",
-                                                        username: "mani_perron",
+                                                        email: "juanma.prada@helixgenetics.org",
+                                                        username: "juanma",
                                                         password: "PAssword@1234",
                                                     },
                                                 }}

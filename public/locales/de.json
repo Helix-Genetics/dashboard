@@ -392,6 +392,65 @@
             "address": "Adresse"
         }
     },
+    "cars": {
+        "cars": "Autos",
+        "titles": {
+            "edit": "Editar Carros",
+            "list": "Carros",
+            "show": "Detalles del Carro"
+        },
+        "fields": {
+            "id": "ID",
+            "make": "Marca",
+            "model": "Modelo",
+            "color": "Color",
+            "year": "Año",
+            "mileage": "Kilomotraje",
+            "owner": "Dueño",
+            "location": "Ubicación",
+            "verifications": "Verificaciones",
+            "reservations": "Reservas",
+            "reviews":  "Reviews",
+            "features": "Caracteristicas",
+            "preferences": "Preferencias",
+            "created_at": "FechaCreación",
+            "updated_at": "FechaActualización",
+            "itemsCount": "{{amount}} Carros"
+        },
+        "filter": {
+            "title": "Filter",
+            "search": {
+                "label": "Suggen",
+                "placeholder": "Marca, Color, Modelo, etc."
+            },
+            "created_at": {
+                "label": "FechaCreación"
+            },
+            "make": {
+                "label": "Marca",
+                "placeholder": "Marca"
+            },
+            "model": {
+                "label": "Modelo",
+                "placeholder": "Modelo"
+            },
+            "color": {
+                "label": "Color",
+                "placeholder": "Color"
+            },
+            "year": {
+                "label": "Año",
+                "placeholder": "Año"
+            },
+            "mileage": {
+                "label": "Kilometraje",
+                "placeholder": "Kilometraje"
+            },
+
+            "submit": "Filtrar"
+        }
+    },
+
     "errors": {
         "required": {
             "field": "'{{ field }}' ist erforderlich",

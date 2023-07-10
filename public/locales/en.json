@@ -180,11 +180,12 @@
             "orderId": "Order ID",
             "review": "Review",
             "rating": "Rating",
-            "status": "status"
+            "status": "status",
+            "itemsAmount": "{{amount}} Reviews"
         }
     },
     "users": {
-        "users": "Users",
+        "title": "Users",
         "titles": {
             "edit": "Edit User",
             "list": "Users",
@@ -237,6 +238,79 @@
         "addresses": {
             "addresses": "Addresses",
             "address": "Address"
+        }
+    },
+    "verifications": {
+        "fields": {
+            "itemsAmount": "{{amount}} Verifications"
+        }
+    },
+    "features": {
+        "fields": {
+            "itemsAmount": "{{amount}} Features"
+        }
+    },
+    "reservations": {
+        "fields": {
+            "itemsAmount": "{{amount}} Reservations"
+        }
+    },
+    "cars": {
+        "cars": "Cars Ugly",
+        "titles": {
+            "edit": "Edit Cars",
+            "list": "Cars",
+            "show": "Car Detail"
+        },
+        "fields": {
+            "id": "ID",
+            "make": "Make",
+            "model": "Model",
+            "color": "Color",
+            "year": "Year",
+            "mileage": "Mileage",
+            "owner": "Owner",
+            "location": "Location",
+            "verifications": "Verifications",
+            "reservations": "Reservations",
+            "reviews":  "Reviews",
+            "features": "Features",
+            "preferences": "Preferences",
+            "created_at": "CreatedAt",
+            "updated_at": "CreatedAt",
+            "itemsAmount": "{{amount}} Cars"
+        },
+        "filter": {
+            "title": "Filters",
+            "search": {
+                "label": "Search",
+                "placeholder": "Make, Color, Model, etc."
+            },
+            "created_at": {
+                "label": "Created At"
+            },
+            "make": {
+                "label": "Make",
+                "placeholder": "Make",
+            },
+            "model": {
+                "label": "Model",
+                "placeholder": "Model"
+            },
+            "color": {
+                "label": "Color",
+                "placeholder": "Color"
+            },
+            "year": {
+                "label": "Year",
+                "placeholder": "Year"
+            },
+            "mileage": {
+                "label": "Mileage",
+                "placeholder": "Mileage"
+            },
+
+            "submit": "Filter"
         }
     },
     "errors": {

@@ -147,45 +147,6 @@
             "isActive": "Active"
         }
     },
-    "couriers": {
-        "couriers": "Couriers",
-        "titles": {
-            "create": "Create Courier",
-            "list": "Couriers",
-            "edit": "Edit Courier"
-        },
-        "fields": {
-            "id": "ID",
-            "avatar": {
-                "label": "Avatar",
-                "description": "Click or drag avatar image to this area to upload."
-            },
-            "name": "Name",
-            "surname": "Surname",
-            "gender": {
-                "label": "Gender",
-                "male": "Male",
-                "female": "Female"
-            },
-            "gsm": "Phone",
-            "email": "E-Mail",
-            "address": "Address",
-            "createdAt": "CreatedAt",
-            "isActive": "Is Active",
-            "images": {
-                "label": "Images",
-                "description": "Add user picture",
-                "validation": "must be 480x480 px"
-            },
-            "store": "Store",
-            "vehicle": "Vehicle",
-            "accountNumber": "Account Number"
-        },
-        "steps": {
-            "content": "Content",
-            "relations": "Relations"
-        }
-    },
     "dashboard": {
         "title": "Dashboard",
         "deliveryMap": {
@@ -242,7 +203,8 @@
             "orderId": "Order ID",
             "review": "Review",
             "rating": "Rating",
-            "status": "estado"
+            "status": "estado",
+            "itemsCount": "{{amount}} Reviews"
         }
     },
     "users": {
@@ -299,6 +261,80 @@
         "addresses": {
             "addresses": "Addresses",
             "address": "Address"
+        }
+    },
+
+    "verifications": {
+        "fields": {
+            "itemsCount": "{{amount}} Verificaciones"
+        }
+    },
+    "features": {
+        "fields": {
+            "itemsCount": "{{amount}} Características"
+        }
+    },
+    "reservations": {
+        "fields": {
+            "itemsCount": "{{amount}} Reservas"
+        }
+    },
+    "cars": {
+        "cars": "Carros",
+        "titles": {
+            "edit": "Editar Carros",
+            "list": "Carros",
+            "show": "Detalles del Carro"
+        },
+        "fields": {
+            "id": "ID",
+            "make": "Marca",
+            "model": "Modelo",
+            "color": "Color",
+            "year": "Año",
+            "mileage": "Kilomotraje",
+            "owner": "Dueño",
+            "location": "Ubicación",
+            "verifications": "Verificaciones",
+            "reservations": "Reservas",
+            "reviews":  "Reviews",
+            "features": "Caracteristicas",
+            "preferences": "Preferencias",
+            "created_at": "FechaCreación",
+            "updated_at": "FechaActualización",
+            "itemsCount": "{{amount}} Carros"
+        },
+        "filter": {
+            "title": "Filtros",
+            "search": {
+                "label": "Buscar",
+                "placeholder": "Marca, Color, Modelo, etc."
+            },
+            "created_at": {
+                "label": "FechaCreación"
+            },
+            "make": {
+                "label": "Marca",
+                "placeholder": "Marca"
+            },
+            "model": {
+                "label": "Modelo",
+                "placeholder": "Modelo"
+            },
+            "color": {
+                "label": "Color",
+                "placeholder": "Color"
+            },
+            "year": {
+                "label": "Año",
+                "placeholder": "Año"
+            },
+            "mileage": {
+                "label": "Kilometraje",
+                "placeholder": "Kilometraje"
+            },
+
+            "submit": "Filtrar"
         }
     },
     "errors": {
