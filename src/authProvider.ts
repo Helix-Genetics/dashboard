@@ -3,6 +3,7 @@ import axios from 'axios'
 import { axiosInstance } from "@refinedev/simple-rest";
 export const TOKEN_KEY = "refine-auth";
 export const EXCHANGE_TOKEN = 'refine-pre'
+export const USER = 'user'
 export const API_URL = "http://localhost:4000";
 
 export { axiosInstance }
@@ -101,15 +102,11 @@ export const authProvider: AuthBindings = {
     },
     getPermissions: async () => null,
     getIdentity: async () => {
-        const token = localStorage.getItem(TOKEN_KEY);
-        if (!token) {
+        const user = localStorage.getItem(USER);
+        if (!user) {
             return null;
         }
 
-        return {
-            id: 1,
-            name: "James Sullivan",
-            avatar: "https://i.pravatar.cc/150",
-        };
+        return JSON.parse(user)
     },
 };

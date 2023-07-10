@@ -311,9 +311,9 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = () => {
                             justifyContent="center"
                         >
                             <Typography variant="subtitle2">
-                                {user?.name}
+                                {user?.first_name}
                             </Typography>
-                            <Avatar src={user?.avatar} alt={user?.name} />
+                            <Avatar src={user?.avatar} alt={user?.first_name} />
                         </Stack>
                     </Stack>
                 </Stack>

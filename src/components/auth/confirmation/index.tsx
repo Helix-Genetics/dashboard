@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { NumberOutlined } from "@ant-design/icons";
 import { TextField, Button, Card, CardContent } from "@mui/material";
 import axios from 'axios'
-import {API_URL, authProvider, EXCHANGE_TOKEN, TOKEN_KEY} from "../../../authProvider";
+import {API_URL, authProvider, EXCHANGE_TOKEN, TOKEN_KEY, USER } from "../../../authProvider";
 import { AuthPage } from "../../../pages/auth";
 import {Link} from "react-router-dom";
 
@@ -39,8 +39,14 @@ export const ConfirmationPage: React.FC = () => {
       if (response.status === 201) {
         const result = response.data;
 
+
+        const { data } = await axios.get(`${API_URL}/auth/identity`, {
+          headers: { Authorization: `Bearer ${result.access_token}` }
+        });
         // Save the authentication token to localStorage or state
         localStorage.setItem(TOKEN_KEY, result.access_token);
+        localStorage.setItem(USER, JSON.stringify(data))
+
         location.href = '/'
       } else {
         location.href = '/login'
